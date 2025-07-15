@@ -1,0 +1,338 @@
+.voice-settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.voice-settings-modal {
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  backdrop-filter: blur(20px);
+  animation: slideIn 0.3s ease-out;
+}
+
+.voice-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.voice-settings-header h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.voice-settings-content {
+  padding: 1.5rem;
+  color: white;
+}
+
+.setting-section {
+  margin-bottom: 2rem;
+}
+
+.setting-section:last-child {
+  margin-bottom: 0;
+}
+
+.setting-section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.setting-section h4 {
+  margin: 0 0 0.5rem 0;
+  color: #7ED321;
+  font-size: 1.1rem;
+}
+
+.setting-section p {
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.api-key-input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.api-key-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem;
+  color: white;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.api-key-input:focus {
+  outline: none;
+  border-color: #7ED321;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(126, 211, 33, 0.2);
+}
+
+.api-key-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.save-button {
+  background: linear-gradient(45deg, #7ED321, #9AE83A);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(126, 211, 33, 0.3);
+}
+
+.save-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.api-key-status {
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+.api-key-status.valid {
+  background: rgba(126, 211, 33, 0.2);
+  color: #7ED321;
+  border: 1px solid rgba(126, 211, 33, 0.3);
+}
+
+.voice-info {
+  margin-top: 8px;
+}
+
+.voice-display {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px;
+  border: 2px solid #7ED321;
+  border-radius: 8px;
+  background: rgba(126, 211, 33, 0.1);
+}
+
+.voice-name {
+  font-weight: 600;
+  color: #7ED321;
+  font-size: 16px;
+}
+
+.voice-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.test-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.test-button {
+  background: rgba(59, 130, 246, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.test-button:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 1);
+  transform: translateY(-1px);
+}
+
+.test-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.test-result {
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.test-result.success {
+  background: rgba(126, 211, 33, 0.2);
+  color: #7ED321;
+  border: 1px solid rgba(126, 211, 33, 0.3);
+}
+
+.test-result.error {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  padding: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-list li:last-child {
+  border-bottom: none;
+}
+
+.instructions-list {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.instructions-list li {
+  margin-bottom: 0.5rem;
+}
+
+.instructions-list a {
+  color: #7ED321;
+  text-decoration: none;
+}
+
+.instructions-list a:hover {
+  text-decoration: underline;
+}
+
+.voice-settings-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clear-button {
+  background: rgba(239, 68, 68, 0.8);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-button:hover {
+  background: rgba(239, 68, 68, 1);
+  transform: translateY(-1px);
+}
+
+.done-button {
+  background: linear-gradient(45deg, #7ED321, #9AE83A);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.done-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(126, 211, 33, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .voice-settings-modal {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .voice-settings-header,
+  .voice-settings-content,
+  .voice-settings-footer {
+    padding: 1rem;
+  }
+  
+  .api-key-input-group {
+    flex-direction: column;
+  }
+  
+  .voice-settings-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
